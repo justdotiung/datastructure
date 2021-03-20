@@ -1,4 +1,4 @@
-"use strict";
+import Stack from './stack.js';
 class MyNode {
     constructor(value) {
         this.value = value;
@@ -79,12 +79,25 @@ class LinkedList {
         return currentNode;
     }
 }
-const MyLinkedList = new LinkedList('s');
-MyLinkedList.append('r');
-MyLinkedList.append('i');
-MyLinkedList.append('n');
-MyLinkedList.insert(1, 't');
-MyLinkedList.insert(5, 'g');
-console.log(MyLinkedList.print());
-MyLinkedList.remove(6).remove(5).remove(0);
-console.log(MyLinkedList.print());
+const myLinkedList = new LinkedList('s');
+myLinkedList.append('r');
+myLinkedList.append('i');
+myLinkedList.append('n');
+myLinkedList.append('n');
+myLinkedList.insert(1, 't');
+myLinkedList.insert(5, 'g');
+console.log(myLinkedList.print());
+myLinkedList.remove(6).remove(5).remove(0);
+console.log(myLinkedList.print());
+const myStack = new Stack(10);
+console.log(myStack.empty());
+myStack.push(1);
+myStack.push(2);
+myStack.push(3);
+myStack.push(4);
+console.log(myStack);
+myStack.pop();
+myStack.pop();
+myStack.pop();
+console.log(myStack);
+console.log(myStack.top());
