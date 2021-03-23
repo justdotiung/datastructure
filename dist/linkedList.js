@@ -1,4 +1,5 @@
 import Stack from './stack.js';
+import Queue from './queue.js';
 class MyNode {
     constructor(value) {
         this.value = value;
@@ -101,3 +102,14 @@ myStack.pop();
 myStack.pop();
 console.log(myStack);
 console.log(myStack.top());
+const myQueue = new Queue(3);
+myQueue.enqueue(10);
+myQueue.enqueue(9);
+myQueue.enqueue(8);
+console.log(myQueue);
+myQueue.dequeue();
+myQueue.dequeue();
+myQueue.dequeue();
+console.log(myQueue);
+myQueue.enqueue(8);
+console.log(myQueue.peek());
