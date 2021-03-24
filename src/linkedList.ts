@@ -1,5 +1,6 @@
 import Stack from './stack.js';
 import Queue from './queue.js';
+import BTree from './bTree.js';
 
 class MyNode<T> {
   public next: null | undefined | MyNode<T>;
@@ -137,3 +138,26 @@ console.log(myQueue);
 
 myQueue.enqueue(8);
 console.log(myQueue.peek());
+console.clear();
+
+const myBTree = new BTree();
+
+// myBTree.append(21);
+myBTree.append(11);
+// myBTree.append(30);
+myBTree.append(6);
+myBTree.append(15);
+myBTree.append(7);
+myBTree.append(3);
+myBTree.append(1);
+myBTree.append(5);
+myBTree.append(4);
+myBTree.append(2);
+// myBTree.append(16);
+// myBTree.append(13);
+myBTree.print();
+console.log(myBTree);
+// myBTree.remove(15);
+myBTree.remove(6);
+console.log(myBTree);
+myBTree.print();

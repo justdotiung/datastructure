@@ -17,5 +17,6 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'no-constant-condition': ['error', { checkLoops: false }],
   },
 };
