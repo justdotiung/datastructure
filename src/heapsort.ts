@@ -3,32 +3,36 @@ export default class Heap {
     [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
   }
 
-  static downHeap(arr: Array<number>, left: number, right: number): void {
-    let parent = left;
-    const root = arr[parent];
-    let overNumChild = 0;
-    while (parent < right) {
-      const cl = parent * 2 + 1;
-      const cr = parent * 2 + 2;
-      overNumChild = arr[cl] < arr[cr] ? cr : cl;
-      if (root > arr[overNumChild]) break;
-      arr[parent] = arr[overNumChild];
-      parent = overNumChild;
+  static downHeap(arr: Array<number>, i: number, right: number): void {
+    const rootValue = arr[i];
+    let root = i;
+    let bc = 0;
+    while (root < Math.floor(right / 2)) {
+      const cl = root * 2 + 1;
+      const cr = cl + 1;
+
+      bc = arr[cl] < arr[cr] && cr < right ? cr : cl;
+      if (rootValue > arr[bc]) break;
+      this.swap(arr, root, bc);
+
+      root = bc;
     }
-    arr[parent] = root;
+    arr[root] = rootValue;
   }
 
-  static sort(arr: Array<number>, len: number): void {
-    const mid = Math.floor((len - 1) / 2);
-    const right = Math.floor(len / 2);
-    console.log(mid, len, right);
-    for (let i = len - 1; i >= 0; i--) {
-      this.downHeap(arr, i, right);
+  static sort(arr: Array<number>) {
+    const mid = Math.floor((arr.length - 1) / 2);
+    const len = arr.length;
+    for (let i = mid; i >= 0; i--) {
+      this.downHeap(arr, i, len);
     }
+
+    console.log(arr);
 
     for (let i = len - 1; i >= 0; i--) {
       this.swap(arr, 0, i);
-      this.downHeap(arr, 0, Math.floor((i - 1) / 2));
+      this.downHeap(arr, 0, i);
     }
+    console.log(arr);
   }
 }

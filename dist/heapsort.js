@@ -2,31 +2,32 @@ export default class Heap {
     static swap(arr, idx1, idx2) {
         [arr[idx1], arr[idx2]] = [arr[idx2], arr[idx1]];
     }
-    static downHeap(arr, left, right) {
-        let parent = left;
-        const root = arr[parent];
-        let overNumChild = 0;
-        while (parent < right) {
-            const cl = parent * 2 + 1;
-            const cr = parent * 2 + 2;
-            overNumChild = arr[cl] < arr[cr] ? cr : cl;
-            if (root > arr[overNumChild])
+    static downHeap(arr, i, right) {
+        const rootValue = arr[i];
+        let root = i;
+        let bc = 0;
+        while (root < Math.floor(right / 2)) {
+            const cl = root * 2 + 1;
+            const cr = cl + 1;
+            bc = arr[cl] < arr[cr] && cr < right ? cr : cl;
+            if (rootValue > arr[bc])
                 break;
-            arr[parent] = arr[overNumChild];
-            parent = overNumChild;
+            this.swap(arr, root, bc);
+            root = bc;
         }
-        arr[parent] = root;
+        arr[root] = rootValue;
     }
-    static sort(arr, len) {
-        const mid = Math.floor((len - 1) / 2);
-        const right = Math.floor(len / 2);
-        console.log(mid, len, right);
-        for (let i = len - 1; i >= 0; i--) {
-            this.downHeap(arr, i, right);
+    static sort(arr) {
+        const mid = Math.floor((arr.length - 1) / 2);
+        const len = arr.length;
+        for (let i = mid; i >= 0; i--) {
+            this.downHeap(arr, i, len);
         }
+        console.log(arr);
         for (let i = len - 1; i >= 0; i--) {
             this.swap(arr, 0, i);
-            this.downHeap(arr, 0, Math.floor((i - 1) / 2));
+            this.downHeap(arr, 0, i);
         }
+        console.log(arr);
     }
 }
