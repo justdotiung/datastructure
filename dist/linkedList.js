@@ -133,7 +133,7 @@ class LinkedList {
 // myBTree.remove(6);
 // console.log(myBTree);
 // myBTree.print();
-const heap = [2, 4, 5, 400, 13, 2, 5, 5, 1, 22, 15, 8, 6, 1, 2];
+const heap = [2, 5, 5, 1, 22, 15, 8, 6, 1, 2];
 Heap.sort(heap);
 // Heap.heapSort(heap, heap.length);
 // Heap.sort2(heap);

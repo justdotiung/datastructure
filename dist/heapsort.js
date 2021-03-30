@@ -4,30 +4,31 @@ export default class Heap {
     }
     static downHeap(arr, i, right) {
         const rootValue = arr[i];
-        let root = i;
+        let currRoot = i;
         let bc = 0;
-        while (root < Math.floor(right / 2)) {
-            const cl = root * 2 + 1;
+        while (currRoot < Math.floor(right / 2)) {
+            const cl = currRoot * 2 + 1;
             const cr = cl + 1;
             bc = arr[cl] < arr[cr] && cr < right ? cr : cl;
             if (rootValue > arr[bc])
                 break;
-            this.swap(arr, root, bc);
-            root = bc;
+            this.swap(arr, currRoot, bc);
+            currRoot = bc;
         }
-        arr[root] = rootValue;
+        arr[currRoot] = rootValue;
     }
     static sort(arr) {
         const mid = Math.floor((arr.length - 1) / 2);
         const len = arr.length;
+        // 이진트리 힙
         for (let i = mid; i >= 0; i--) {
             this.downHeap(arr, i, len);
         }
         console.log(arr);
+        //힙 정렬
         for (let i = len - 1; i >= 0; i--) {
             this.swap(arr, 0, i);
             this.downHeap(arr, 0, i);
         }
-        console.log(arr);
     }
 }
