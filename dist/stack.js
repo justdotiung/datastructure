@@ -23,7 +23,7 @@ class Stack {
         return this;
     }
     empty() {
-        return this.stack.length === 0 ? 1 : 0;
+        return this.stack.length === 0 ? true : false;
     }
     get size() {
         return this.max;

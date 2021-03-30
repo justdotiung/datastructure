@@ -24,8 +24,8 @@ class Stack<T> {
     return this;
   }
 
-  empty(): number {
-    return this.stack.length === 0 ? 1 : 0;
+  empty(): boolean {
+    return this.stack.length === 0 ? true : false;
   }
 
   get size(): number {

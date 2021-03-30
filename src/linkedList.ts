@@ -1,6 +1,7 @@
 import Stack from './stack.js';
 import Queue from './queue.js';
 import BTree from './bTree.js';
+import Heap from './heapsort.js';
 
 class MyNode<T> {
   public next: null | undefined | MyNode<T>;
@@ -97,67 +98,71 @@ class LinkedList<T> {
   }
 }
 
-const myLinkedList = new LinkedList('s');
-myLinkedList.append('r');
-myLinkedList.append('i');
-myLinkedList.append('n');
-myLinkedList.append('n');
-myLinkedList.insert(1, 't');
-myLinkedList.insert(5, 'g');
+// const myLinkedList = new LinkedList('s');
+// myLinkedList.append('r');
+// myLinkedList.append('i');
+// myLinkedList.append('n');
+// myLinkedList.append('n');
+// myLinkedList.insert(1, 't');
+// myLinkedList.insert(5, 'g');
 
-console.log(myLinkedList.print());
+// console.log(myLinkedList.print());
 
-myLinkedList.remove(6).remove(5).remove(0);
-console.log(myLinkedList.print());
+// myLinkedList.remove(6).remove(5).remove(0);
+// console.log(myLinkedList.print());
 
-const myStack = new Stack<number>(10);
-console.log(myStack.empty());
-myStack.push(1);
-myStack.push(2);
-myStack.push(3);
-myStack.push(4);
-console.log(myStack);
-myStack.pop();
-myStack.pop();
-myStack.pop();
-console.log(myStack);
-console.log(myStack.top());
+// const myStack = new Stack<number>(10);
+// console.log(myStack.empty());
+// myStack.push(1);
+// myStack.push(2);
+// myStack.push(3);
+// myStack.push(4);
+// console.log(myStack);
+// myStack.pop();
+// myStack.pop();
+// myStack.pop();
+// console.log(myStack);
+// console.log(myStack.top());
 
-const myQueue = new Queue(3);
-myQueue.enqueue(10);
-myQueue.enqueue(9);
-myQueue.enqueue(8);
+// const myQueue = new Queue(3);
+// myQueue.enqueue(10);
+// myQueue.enqueue(9);
+// myQueue.enqueue(8);
 
-console.log(myQueue);
+// console.log(myQueue);
 
-myQueue.dequeue();
-myQueue.dequeue();
-myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
+// myQueue.dequeue();
 
-console.log(myQueue);
+// console.log(myQueue);
 
-myQueue.enqueue(8);
-console.log(myQueue.peek());
-console.clear();
+// myQueue.enqueue(8);
+// console.log(myQueue.peek());
+// console.clear();
 
-const myBTree = new BTree();
+// const myBTree = new BTree();
 
-// myBTree.append(21);
-myBTree.append(11);
-// myBTree.append(30);
-myBTree.append(6);
-myBTree.append(15);
-myBTree.append(7);
-myBTree.append(3);
-myBTree.append(1);
-myBTree.append(5);
-myBTree.append(4);
-myBTree.append(2);
-// myBTree.append(16);
-// myBTree.append(13);
-myBTree.print();
-console.log(myBTree);
-// myBTree.remove(15);
-myBTree.remove(6);
-console.log(myBTree);
-myBTree.print();
+// // myBTree.append(21);
+// myBTree.append(11);
+// // myBTree.append(30);
+// myBTree.append(6);
+// myBTree.append(15);
+// myBTree.append(7);
+// myBTree.append(3);
+// myBTree.append(1);
+// myBTree.append(5);
+// myBTree.append(4);
+// myBTree.append(2);
+// // myBTree.append(16);
+// // myBTree.append(13);
+// myBTree.print();
+// console.log(myBTree);
+// // myBTree.remove(15);
+// myBTree.remove(6);
+// console.log(myBTree);
+// myBTree.print();
+const heap = [7, 3, 10, 8, 9, 11, 200, 100, 6, 3, 33, 86, 7, 5, 1, 7, 16, 2];
+Heap.sort(heap, heap.length);
+// Heap.heapSort(heap, heap.length);
+console.log(heap);
