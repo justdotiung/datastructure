@@ -18,5 +18,11 @@ module.exports = {
       },
     ],
     'no-constant-condition': ['error', { checkLoops: false }],
+    // '@typescript-eslint/explicit-module-boundary-types': [
+    //   'error',
+    //   {
+    //     allowDirectConstAssertionInArrowFunctions: true,
+    //   },
+    // ],
   },
 };

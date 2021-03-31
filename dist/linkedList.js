@@ -1,4 +1,4 @@
-import Heap from './heapsort.js';
+import MergeSort from './mergeSort.js';
 class MyNode {
     constructor(value) {
         this.value = value;
@@ -133,8 +133,9 @@ class LinkedList {
 // myBTree.remove(6);
 // console.log(myBTree);
 // myBTree.print();
-const heap = [2, 5, 5, 1, 22, 15, 8, 6, 1, 2];
-Heap.sort(heap);
+const heap = [4, 3, 2, 1, 9, 0];
+// Heap.sort(heap);
 // Heap.heapSort(heap, heap.length);
 // Heap.sort2(heap);
+MergeSort.mergeSort(heap, 0, heap.length - 1);
 console.log(heap);
